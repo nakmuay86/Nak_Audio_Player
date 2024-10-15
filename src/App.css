@@ -37,7 +37,7 @@
   }
 }
 
-#root{
+#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -46,37 +46,116 @@
 }
 
 h2 {
-color: #fff;
+  color: #fff;
+}
+
+.responsive-image {
+  width: 100%; /* Занимает всю ширину родительского контейнера */
+  max-width: 500px; /* Максимальная ширина изображения */
+  height: auto; /* Сохраняет пропорции изображения */
 }
 
 body {
-  background-color: #000;
+  background-image: url("/public/deadmau5.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
-
-#waveform{
+#waveform {
+  margin-bottom: 10px;
   width: 100%;
   max-width: 100%;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .controls{
-  margin-top: 10px;
+  flex-direction: column; /* Вертикальное расположение кнопок */
+  align-items: center; /* Центрирование кнопок */
 }
 
 .controls button {
   margin: 1px;
-  border: 1px solid #ccc !important;
-}
-
-.controls button:hover{
-  background-color: #ececec;
+  border: none; /* Убираем стандартную рамку */
+  background-color: #d12d2d; /* Цвет фона кнопки */
+  color: white; /* Цвет текста и иконок */
+  padding: 10px 15px; /* Отступы внутри кнопки */
+  border-radius: 20px; /* Скругление углов */
+  cursor: pointer; /* Курсор при наведении */
+  transition: background-color 0.3s; /* Плавный переход цвета фона */
+  width: 100%; /* Кнопки занимают всю ширину */
+  max-width: 100px; /* Максимальная ширина кнопок */
 }
 
 .audio-info {
   margin-top: 15px;
-  color: #fff;
+  color: #ffffff;
   border-radius: 4px;
   padding: 8px 15px;
   display: inline-block;
   font-size: 12px;
 }
+
+.controls button:hover {
+  background-color: #a00b00; /* Цвет фона на наведение */
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 986px) {
+  .App-header {
+    font-size: calc(8px + 2vmin); /* Уменьшение размера шрифта на мобильных */
+    padding: 1rem; /* Уменьшение отступов для мобильных */
+  }
+
+  .controls {
+    margin-top: 5px; /* Уменьшение отступа сверху для мобильных */
+    flex-direction: column; /* Вертикальное расположение кнопок */
+    align-items: center; /* Центрирование кнопок */
+  }
+
+  .controls button {
+    flex-direction: column; /* Вертикальное расположение кнопок */
+    align-items: center; /* Центрирование кнопок */
+    max-width: 15.21%;
+  }
+
+  .audio-info {
+    font-size: 10px; /* Уменьшение размера шрифта для информации */
+  }
+
+  h2 {
+    font-size: 16px; /* Уменьшение размера заголовка на мобильных */
+  }
+}
+
+.responsive-image {
+  width: 100%; /* Занимает всю ширину родительского контейнера */
+  max-width: 300px; /* Максимальная ширина изображения */
+  height: auto; /* Сохраняет пропорции изображения */
+}
+
+#waveform {
+  margin: 10px auto; /* Устанавливаем верхний и нижний отступы в 10px, а левый и правый - автоматически */
+  width: 100%;
+  max-width: 75%;
+  animation: fadeIn 0.5s;
+}
+
